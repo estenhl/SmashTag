@@ -15,9 +15,9 @@
             <BuildableReference
                BuildableIdentifier = "primary"
                BlueprintIdentifier = "D8FB7BBA1CF5ECD8008D3390"
-               BuildableName = "Smashtag.app"
-               BlueprintName = "Smashtag"
-               ReferencedContainer = "container:Smashtag.xcodeproj">
+               BuildableName = "SmashClient.app"
+               BlueprintName = "SmashClient"
+               ReferencedContainer = "container:SmashClient.xcodeproj">
             </BuildableReference>
          </BuildActionEntry>
       </BuildActionEntries>
@@ -33,9 +33,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D8FB7BBA1CF5ECD8008D3390"
-            BuildableName = "Smashtag.app"
-            BlueprintName = "Smashtag"
-            ReferencedContainer = "container:Smashtag.xcodeproj">
+            BuildableName = "SmashClient.app"
+            BlueprintName = "SmashClient"
+            ReferencedContainer = "container:SmashClient.xcodeproj">
          </BuildableReference>
       </MacroExpansion>
       <AdditionalOptions>
@@ -56,9 +56,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D8FB7BBA1CF5ECD8008D3390"
-            BuildableName = "Smashtag.app"
-            BlueprintName = "Smashtag"
-            ReferencedContainer = "container:Smashtag.xcodeproj">
+            BuildableName = "SmashClient.app"
+            BlueprintName = "SmashClient"
+            ReferencedContainer = "container:SmashClient.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
       <AdditionalOptions>
@@ -75,9 +75,9 @@
          <BuildableReference
             BuildableIdentifier = "primary"
             BlueprintIdentifier = "D8FB7BBA1CF5ECD8008D3390"
-            BuildableName = "Smashtag.app"
-            BlueprintName = "Smashtag"
-            ReferencedContainer = "container:Smashtag.xcodeproj">
+            BuildableName = "SmashClient.app"
+            BlueprintName = "SmashClient"
+            ReferencedContainer = "container:SmashClient.xcodeproj">
          </BuildableReference>
       </BuildableProductRunnable>
    </ProfileAction>
