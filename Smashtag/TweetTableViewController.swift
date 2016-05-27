@@ -2,15 +2,13 @@ import SmashTwitter
 import UIKit
 
 class TweetTableViewController: UITableViewController {
-    private var api: TwitterAPI?
-    
-    var tweets = [[Tweet]] () {
+var tweets = [[Tweet]] () {
         didSet {
             tableView.reloadData()
         }
     }
     
-    var searchText: String? = "#Test" {
+    var searchText: String? = "Test" {
         didSet {
             tweets.removeAll()
             searchForTweets()
@@ -30,9 +28,8 @@ class TweetTableViewController: UITableViewController {
     
     override func viewDidLoad() {
         super.viewDidLoad()
-        api = TwitterAPI(credentialType: TwitterCredentials.CredentialType.FromFile)
         print("View did load")
-        searchForTweets()
+        TwitterAPI.searchForTweets(searchText!, withCount: 20, andAdditionalParameters: [String: String]()) {_ in print("asdf") }
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
