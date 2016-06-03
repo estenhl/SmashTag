@@ -38,7 +38,8 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("View did load")
-        searchForTweets()
+        tableView.estimatedRowHeight = tableView.rowHeight
+        tableView.rowHeight = UITableViewAutomaticDimension
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -70,11 +71,24 @@ class TweetTableViewController: UITableViewController, UITextFieldDelegate {
         return true
     }
     
+    override func prepareForSegue(segue: UIStoryboardSegue, sender: AnyObject?) {
+        if let identifier = segue.identifier {
+            switch identifier {
+            case "Inspect Tweet":
+                if let cell = sender as? TweetCell,
+                   let vc = segue.destinationViewController as? TweetViewController {
+                        vc.tweet = cell.tweet
+                }
+            default: break
+            }
+        }
+    }
+    
     private func searchForTweets() {
         if let searchString = searchText {
             searchTextHistory.insert(searchString, atIndex: 0)
-            TwitterAPI.searchForTweets(searchString, withCount: TwitterSearchConstants.count, andAdditionalParameters: [String: String]())
-            { [weak weakSelf = self] newTweets in
+            TwitterAPI.searchForTweets(searchString, withCount: TwitterSearchConstants.count, andAdditionalParameters: [String: String]()){
+                [weak weakSelf = self] newTweets in
                 print("Found \(newTweets.count) new tweets")
                 dispatch_async(dispatch_get_main_queue()) {
                     if let lastSearch = weakSelf?.searchTextHistory.first
