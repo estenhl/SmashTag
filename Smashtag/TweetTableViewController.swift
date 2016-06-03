@@ -1,14 +1,23 @@
 import SmashTwitter
 import UIKit
 
-class TweetTableViewController: UITableViewController {
-var tweets = [[Tweet]] () {
+class TweetTableViewController: UITableViewController, UITextFieldDelegate {
+    @IBOutlet weak var searchTextField: UITextField? {
+        didSet {
+            if let searchTextField = searchTextField {
+                searchTextField.delegate = self
+                searchTextField.text = searchText
+            }
+        }
+    }
+    
+    private var tweets = [[Tweet]] () {
         didSet {
             tableView.reloadData()
         }
     }
     
-    var searchText: String? = "Test" {
+    var searchText: String? {
         didSet {
             tweets.removeAll()
             searchForTweets()
@@ -29,7 +38,7 @@ var tweets = [[Tweet]] () {
     override func viewDidLoad() {
         super.viewDidLoad()
         print("View did load")
-        TwitterAPI.searchForTweets(searchText!, withCount: 20, andAdditionalParameters: [String: String]()) {_ in print("asdf") }
+        searchForTweets()
     }
     
     override func numberOfSectionsInTableView(tableView: UITableView) -> Int {
@@ -55,11 +64,16 @@ var tweets = [[Tweet]] () {
         return cell
     }
     
+    func textFieldShouldReturn(textField: UITextField) -> Bool {
+        textField.resignFirstResponder()
+        searchText = textField.text
+        return true
+    }
+    
     private func searchForTweets() {
         if let searchString = searchText {
             searchTextHistory.insert(searchString, atIndex: 0)
-            /*
-            TwitterAPI.searchForTweets(searchString, withCount: TwitterSearchConstants.count)
+            TwitterAPI.searchForTweets(searchString, withCount: TwitterSearchConstants.count, andAdditionalParameters: [String: String]())
             { [weak weakSelf = self] newTweets in
                 print("Found \(newTweets.count) new tweets")
                 dispatch_async(dispatch_get_main_queue()) {
@@ -70,7 +84,6 @@ var tweets = [[Tweet]] () {
                     }
                 }
             }
-             */
         }
     }
 }

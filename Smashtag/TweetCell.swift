@@ -14,11 +14,12 @@ class TweetCell: UITableViewCell {
     }
     
     private func updateUI() {
-        print("Updating UI")
         if let tweet = tweet {
-            print("Found text \(tweet.text)")
-            tweetTextLabel?.text = tweet.text
             tweetScreenNameLabel?.text = tweet.user.screenName
+            
+            if let tweetTextLabel = tweetTextLabel {
+                setTweetTextLabel(tweetTextLabel, tweet: tweet)
+            }
             
             if let dateLabel = tweetCreatedLabel {
                 let formatter = NSDateFormatter()
@@ -29,6 +30,38 @@ class TweetCell: UITableViewCell {
                     formatter.timeStyle = NSDateFormatterStyle.ShortStyle
                 }
                 dateLabel.text = formatter.stringFromDate(tweet.created)
+            }
+            
+            if let profileImage = tweet.user.profileImageURL {
+                dispatch_async(dispatch_get_global_queue(QOS_CLASS_USER_INITIATED, 0)) {
+                    [weak self] in
+                    if let data = NSData(contentsOfURL: profileImage),
+                       let tweetProfileImageView = self?.tweetProfileImageView {
+                        dispatch_async(dispatch_get_main_queue()) {
+                            tweetProfileImageView.image = UIImage(data: data)
+                        }
+                    }
+                }
+            }
+        }
+    }
+    
+    private func setTweetTextLabel(textLabel: UILabel, tweet: Tweet) {
+        let attributedString = NSMutableAttributedString(string: tweet.text)
+        addAttributesFromMentions(tweet.urls, to: attributedString, forIndexableString: tweet.text)
+        addAttributesFromMentions(tweet.hashtags, to: attributedString, forIndexableString: tweet.text)
+        addAttributesFromMentions(tweet.userMentions, to: attributedString, forIndexableString: tweet.text)
+        textLabel.attributedText = attributedString
+    }
+    
+    private func addAttributesFromMentions(mentions: [Mention]?, to string: NSMutableAttributedString, forIndexableString indexableString: String) {
+        if let mentions = mentions {
+            for mention in mentions {
+                let location = mention.range.startIndex
+                let length = mention.range.endIndex - 1 - mention.range.startIndex
+                string.addAttribute(NSBackgroundColorAttributeName,
+                                    value: mention.color.colorWithAlphaComponent(0.5),
+                                    range: NSRange(location: location, length: length))
             }
         }
     }

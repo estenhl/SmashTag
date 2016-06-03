@@ -10,6 +10,11 @@
 		D81372871CF713E5006DF0F6 /* SmashTwitter.framework in Frameworks */ = {isa = PBXBuildFile; fileRef = D81372831CF71303006DF0F6 /* SmashTwitter.framework */; };
 		D81372891CF713EC006DF0F6 /* SmashTwitter.framework in Embed Frameworks */ = {isa = PBXBuildFile; fileRef = D81372831CF71303006DF0F6 /* SmashTwitter.framework */; settings = {ATTRIBUTES = (CodeSignOnCopy, RemoveHeadersOnCopy, ); }; };
 		D887BADA1CF71717006A0211 /* TweetCell.swift in Sources */ = {isa = PBXBuildFile; fileRef = D887BAD91CF71717006A0211 /* TweetCell.swift */; };
+		D8AB24FE1D004F54006469E7 /* accessToken.txt in Resources */ = {isa = PBXBuildFile; fileRef = D8AB24F91D004F54006469E7 /* accessToken.txt */; };
+		D8AB24FF1D004F54006469E7 /* consumerSecret.txt in Resources */ = {isa = PBXBuildFile; fileRef = D8AB24FA1D004F54006469E7 /* consumerSecret.txt */; };
+		D8AB25001D004F54006469E7 /* consumerKey.txt in Resources */ = {isa = PBXBuildFile; fileRef = D8AB24FB1D004F54006469E7 /* consumerKey.txt */; };
+		D8AB25011D004F54006469E7 /* accessTokenSecret.txt in Resources */ = {isa = PBXBuildFile; fileRef = D8AB24FC1D004F54006469E7 /* accessTokenSecret.txt */; };
+		D8EA31611D018BAA0040D6EF /* TweetViewController.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8EA31601D018BAA0040D6EF /* TweetViewController.swift */; };
 		D8FB7BBF1CF5ECD8008D3390 /* AppDelegate.swift in Sources */ = {isa = PBXBuildFile; fileRef = D8FB7BBE1CF5ECD8008D3390 /* AppDelegate.swift */; };
 		D8FB7BC41CF5ECD8008D3390 /* Main.storyboard in Resources */ = {isa = PBXBuildFile; fileRef = D8FB7BC21CF5ECD8008D3390 /* Main.storyboard */; };
 		D8FB7BC61CF5ECD8008D3390 /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = D8FB7BC51CF5ECD8008D3390 /* Assets.xcassets */; };
@@ -58,6 +63,11 @@
 /* Begin PBXFileReference section */
 		D813727E1CF71303006DF0F6 /* SmashTwitter.xcodeproj */ = {isa = PBXFileReference; lastKnownFileType = "wrapper.pb-project"; name = SmashTwitter.xcodeproj; path = ../SmashTwitter/SmashTwitter.xcodeproj; sourceTree = "<group>"; };
 		D887BAD91CF71717006A0211 /* TweetCell.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetCell.swift; sourceTree = "<group>"; };
+		D8AB24F91D004F54006469E7 /* accessToken.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = accessToken.txt; sourceTree = "<group>"; };
+		D8AB24FA1D004F54006469E7 /* consumerSecret.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = consumerSecret.txt; sourceTree = "<group>"; };
+		D8AB24FB1D004F54006469E7 /* consumerKey.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = consumerKey.txt; sourceTree = "<group>"; };
+		D8AB24FC1D004F54006469E7 /* accessTokenSecret.txt */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = text; path = accessTokenSecret.txt; sourceTree = "<group>"; };
+		D8EA31601D018BAA0040D6EF /* TweetViewController.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; path = TweetViewController.swift; sourceTree = "<group>"; };
 		D8FB7BBB1CF5ECD8008D3390 /* SmashClient.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = SmashClient.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		D8FB7BBE1CF5ECD8008D3390 /* AppDelegate.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = AppDelegate.swift; sourceTree = "<group>"; };
 		D8FB7BC31CF5ECD8008D3390 /* Base */ = {isa = PBXFileReference; lastKnownFileType = file.storyboard; name = Base; path = Base.lproj/Main.storyboard; sourceTree = "<group>"; };
@@ -95,9 +105,22 @@
 			name = Products;
 			sourceTree = "<group>";
 		};
+		D8AB24FD1D004F54006469E7 /* Resources */ = {
+			isa = PBXGroup;
+			children = (
+				D8AB24F91D004F54006469E7 /* accessToken.txt */,
+				D8AB24FA1D004F54006469E7 /* consumerSecret.txt */,
+				D8AB24FB1D004F54006469E7 /* consumerKey.txt */,
+				D8AB24FC1D004F54006469E7 /* accessTokenSecret.txt */,
+			);
+			name = Resources;
+			path = ../SmashTwitter/SmashTwitter;
+			sourceTree = "<group>";
+		};
 		D8FB7BB21CF5ECD8008D3390 = {
 			isa = PBXGroup;
 			children = (
+				D8AB24FD1D004F54006469E7 /* Resources */,
 				D813727D1CF712F4006DF0F6 /* Dependencies */,
 				D8FB7BBD1CF5ECD8008D3390 /* Smashtag */,
 				D8FB7BBC1CF5ECD8008D3390 /* Products */,
@@ -117,6 +140,7 @@
 			children = (
 				D8FB7BD01CF5ED03008D3390 /* Supporting Files */,
 				D8FB7BC21CF5ECD8008D3390 /* Main.storyboard */,
+				D8EA31601D018BAA0040D6EF /* TweetViewController.swift */,
 				D887BAD91CF71717006A0211 /* TweetCell.swift */,
 				D8FB7BD11CF5ED61008D3390 /* TweetTableViewController.swift */,
 			);
@@ -211,8 +235,12 @@
 			isa = PBXResourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8AB24FE1D004F54006469E7 /* accessToken.txt in Resources */,
+				D8AB24FF1D004F54006469E7 /* consumerSecret.txt in Resources */,
 				D8FB7BC91CF5ECD8008D3390 /* LaunchScreen.storyboard in Resources */,
+				D8AB25011D004F54006469E7 /* accessTokenSecret.txt in Resources */,
 				D8FB7BC61CF5ECD8008D3390 /* Assets.xcassets in Resources */,
+				D8AB25001D004F54006469E7 /* consumerKey.txt in Resources */,
 				D8FB7BC41CF5ECD8008D3390 /* Main.storyboard in Resources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
@@ -224,6 +252,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				D8EA31611D018BAA0040D6EF /* TweetViewController.swift in Sources */,
 				D887BADA1CF71717006A0211 /* TweetCell.swift in Sources */,
 				D8FB7BBF1CF5ECD8008D3390 /* AppDelegate.swift in Sources */,
 				D8FB7BD21CF5ED61008D3390 /* TweetTableViewController.swift in Sources */,
@@ -352,6 +381,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Smashtag/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
@@ -364,6 +394,7 @@
 			isa = XCBuildConfiguration;
 			buildSettings = {
 				ASSETCATALOG_COMPILER_APPICON_NAME = AppIcon;
+				CLANG_ALLOW_NON_MODULAR_INCLUDES_IN_FRAMEWORK_MODULES = NO;
 				EMBEDDED_CONTENT_CONTAINS_SWIFT = YES;
 				INFOPLIST_FILE = Smashtag/Info.plist;
 				LD_RUNPATH_SEARCH_PATHS = "$(inherited) @executable_path/Frameworks";
